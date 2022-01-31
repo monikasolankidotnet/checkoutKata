@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+@using CheckoutKataMVC.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h3>Products List</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        @foreach (Product product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td align="center">
+                    <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Add to Cart</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
